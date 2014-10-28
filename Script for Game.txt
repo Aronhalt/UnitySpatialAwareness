@@ -1,0 +1,9 @@
+1. Game state, set to the world. Checks whether in Stage 1 or Stage 2.
+	In Stage 1, you will be free to move about the room. When the Stage starts the tutorial plays and the time is written down. After 2 minutes you (can?) leave the room.
+	In Stage 2, "Special" items are made invisible and moved to your inventory. Objects can be chosen from your inventory, placed, and your confidence checked. When all 
+	objects have been placed the game ends, all the data is print out to a .csv file.
+
+2. Character state, set on the player. Checks whether placing or being asked for confidence. When an item has been placed, it needs to run the item's print out code and
+   remove it from the inventory.
+	Should only work in Stage 2!
+	
