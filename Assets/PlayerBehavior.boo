@@ -47,15 +47,18 @@ class PlayerBehavior (MonoBehaviour):
 		if currentState == state.Stage1:
 			pass
 		elif currentState == state.Stage2:
-			UpdateCurrentItemPosition()#Updates position of items on screen.
-			if(Input.GetKeyDown(KeyCode.Tab)):
-				dop = .5
-				self.incIndex()
-			elif(Input.GetKeyDown(KeyCode.Space)):
-				#Increase the distance from the player of held object
-				dop+=.1
-				#Placed[index] = true
-				#index += 1
+			if (index < len(Objects)):
+			    UpdateCurrentItemPosition()#Updates position of items on screen.
+				if(Input.GetKeyDown(KeyCode.Tab)):
+					dop = .5
+					self.incIndex()
+				elif(Input.GetMouseButtonDown(0)):
+					#Increase the distance from the player of held object
+					#dop+=.1
+					Placed[index] = true
+					index += 1
+			else:
+				pass
 		
 	def incIndex():
 		obj = Objects[index] as GameObject
