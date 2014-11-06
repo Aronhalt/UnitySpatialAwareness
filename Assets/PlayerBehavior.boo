@@ -15,6 +15,7 @@ class PlayerBehavior (MonoBehaviour):
 	
 	Objects = []
 	Placed = []
+	z = float = 0.0;
 	
 	enum state:
 		Stage1 = 1
@@ -96,7 +97,16 @@ class PlayerBehavior (MonoBehaviour):
 		
 		### NEW VERSION OF PLACING OBJECT ON SCREEN ###
 		#Moves the selected(index) object out of your inventory and to infront of you.
-		obj.transform.position = Camera.main.ScreenToWorldPoint(Vector3(Screen.width/2, Screen.height/2, Camera.main.nearClipPlane+dop))
+		if (Input.GetAxis("Mouse ScrollWheel")):
+			temp = Input.GetAxis("Mouse ScrollWheel")
+			
+			if (temp < 0):
+				z -= .1
+			else:
+				z += .1	
+			z = Mathf.Clamp(z, 0.0f,  1.0f)
+			
+		obj.transform.position = Camera.main.ScreenToWorldPoint(Vector3(Screen.width/2, Screen.height/2, (Camera.main.nearClipPlane+dop + z)))
 		
 		#apply correction offset
 		/*obj.transform.position += p.offset.x * gameObject.transform.right.normalized;
