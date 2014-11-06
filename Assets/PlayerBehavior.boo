@@ -53,9 +53,9 @@ class PlayerBehavior (MonoBehaviour):
 				self.incIndex()
 			elif(Input.GetKeyDown(KeyCode.Space)):
 				#Increase the distance from the player of held object
-				dop+=.1
-				#Placed[index] = true
-				#index += 1
+				//dop+=.1
+				Placed[index] = true
+				index += 1
 		
 	def incIndex():
 		obj = Objects[index] as GameObject

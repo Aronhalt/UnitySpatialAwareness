@@ -7253,7 +7253,7 @@ Rigidbody:
   m_GameObject: {fileID: 800674765}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 3
   m_AngularDrag: .0500000007
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -16320,7 +16320,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 2e440ec88adac884db3fe69c29eff128, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2e440ec88adac884db3fe69c29eff128, type: 2}
       propertyPath: m_TagString
