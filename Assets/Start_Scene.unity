@@ -1264,6 +1264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playNormal: {fileID: 2800000, guid: 35f4e473e4ee6a84a8007854910110e9, type: 3}
   playHover: {fileID: 2800000, guid: 5afa693c4ffd268498ffdfa1b7a863e2, type: 3}
+  login: {fileID: 100000, guid: 80b1d531cebf26046a8166b45f9b67f9, type: 2}
 --- !u!131 &1172205492
 GUITexture:
   m_ObjectHideFlags: 0
@@ -2076,7 +2077,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1517202210}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -3, y: 2.66588521, z: 8.19648392e-07}
+  m_LocalPosition: {x: -1, y: 2.66588521, z: 8.19648392e-07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
