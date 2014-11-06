@@ -18198,6 +18198,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1980658863}
   - 95: {fileID: 1980658864}
+  - 65: {fileID: 1980658865}
   m_Layer: 0
   m_Name: PC
   m_TagString: Untagged
@@ -18236,6 +18237,18 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!65 &1980658865
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1980658862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .150000006, y: .150000006, z: .150000006}
+  m_Center: {x: -1.07000005, y: .330000013, z: -.170000002}
 --- !u!1 &1982351254
 GameObject:
   m_ObjectHideFlags: 0
