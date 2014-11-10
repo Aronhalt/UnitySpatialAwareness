@@ -31,7 +31,7 @@ class PlayerBehavior (MonoBehaviour):
 	public currentState = state.Stage2
 
 	def Start ():
-		currentState = state.Stage2
+		currentState = PlayerPrefs.GetInt("state")
 		if currentState == state.Stage1:
 			pass
 		elif currentState == state.Stage2:
