@@ -16,6 +16,7 @@ class PlayerBehavior (MonoBehaviour):
 	Objects = []
 	Placed = []
 	z = float = 0.0;
+	p = 0
 	
 	enum state:
 		Stage1 = 1
@@ -31,7 +32,7 @@ class PlayerBehavior (MonoBehaviour):
 	public currentState = state.Stage2
 
 	def Start ():
-		currentState = state.Stage2
+		currentState = PlayerPrefs.GetInt("state")
 		if currentState == state.Stage1:
 			pass
 		elif currentState == state.Stage2:
@@ -51,12 +52,23 @@ class PlayerBehavior (MonoBehaviour):
 			    UpdateCurrentItemPosition()#Updates position of items on screen.
 				if(Input.GetKeyDown(KeyCode.Tab)):
 					dop = .5
-					self.incIndex()
+					if(p < total):
+						self.incIndex()
 				elif(Input.GetMouseButtonDown(0)):
 					#Increase the distance from the player of held object
 					#dop+=.1
 					Placed[index] = true
-					index += 1
+					p++
+					i = index
+					while(Placed[i]):
+						if(p >= total):
+							i = total+1
+							break
+						i++
+						if(i>=total):
+							i = 0
+					index = i
+							
 			else:
 				pass
 		
@@ -64,12 +76,16 @@ class PlayerBehavior (MonoBehaviour):
 		obj = Objects[index] as GameObject
 		obj.renderer.enabled = false
 		obj.transform.position = Vector3(0,0,0)
-		self.index += 1
+		index++
 		if(self.index >= total):
 			self.index = 0
+		while(Placed[index]):
+			index++
+			if(index >= total):
+				index = 0
 		Debug.Log(index + "    " + Placed[index])
-		while(index < total-1 and Placed[index] != false):
-			self.index+=1
+		//while(index < total-1 and Placed[index] != false):
+		//	self.index+=1
 	def decIndex():
 		obj = Objects[index] as GameObject
 		obj.renderer.enabled = false

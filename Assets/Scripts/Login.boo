@@ -29,6 +29,7 @@ class Login (MonoBehaviour):
 
 	def OnMouseDown() as void:
 		saveCSV()
+		PlayerPrefs.SetInt("state", 2)
 		Application.LoadLevel("SceneA")
 		
 	def saveCSV ():
