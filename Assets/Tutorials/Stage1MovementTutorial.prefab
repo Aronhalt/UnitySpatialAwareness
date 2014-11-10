@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: Stage1MovementTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 189.852554, y: 0, z: 6.60849953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c368b1cbca23472a85decb5d7fa2607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 4
+  fadeTime: 1
+  frameRate: 10
+  textures:
+  - {fileID: 2800000, guid: 048ba0bbaaae84b03b3d28d54e6f0f7c, type: 3}
+  - {fileID: 2800000, guid: 138351d31db0346bf88530ffde4a4863, type: 3}
+  - {fileID: 2800000, guid: 590dc36c619d842748e2a7e608f7f3f3, type: 3}
+  - {fileID: 2800000, guid: 4682f3aaf13ac4913bba3101e05c2bf6, type: 3}
+  - {fileID: 2800000, guid: 6202e907ff10444928a5a5a0247e9cb7, type: 3}
+  - {fileID: 2800000, guid: db0a6e8a5d84a4b6085bacd45aac580c, type: 3}
+  - {fileID: 2800000, guid: 7121704a331f04513a53828f7df5bdab, type: 3}
+  - {fileID: 2800000, guid: d46875d8cb73b48a280ba4b33291c910, type: 3}
+  - {fileID: 2800000, guid: 627e2e72428b44c16b0a6f33832347e8, type: 3}
+  next: {fileID: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
