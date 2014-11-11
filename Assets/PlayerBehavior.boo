@@ -17,6 +17,7 @@ class PlayerBehavior (MonoBehaviour):
 	Placed = []
 	z = float = 0.0;
 	p = 0
+	showConfidenceGui = false
 	
 	enum state:
 		Stage1 = 1
@@ -49,25 +50,35 @@ class PlayerBehavior (MonoBehaviour):
 			pass
 		elif currentState == state.Stage2:
 			if (index < len(Objects)):
-			    UpdateCurrentItemPosition()#Updates position of items on screen.
-				if(Input.GetKeyDown(KeyCode.Tab)):
-					dop = .5
-					if(p < total):
-						self.incIndex()
-				elif(Input.GetMouseButtonDown(0)):
-					#Increase the distance from the player of held object
-					#dop+=.1
-					Placed[index] = true
-					p++
-					i = index
-					while(Placed[i]):
-						if(p >= total):
-							i = total+1
-							break
-						i++
-						if(i>=total):
-							i = 0
-					index = i
+				#Check whether you should be placing objects or giving a confidence
+				if not showConfidenceGui:
+				    UpdateCurrentItemPosition()#Updates position of items on screen.
+					if(Input.GetKeyDown(KeyCode.Tab)):
+						dop = .5
+						if(p < total):
+							self.incIndex()
+					elif(Input.GetMouseButtonDown(0)):
+						#Increase the distance from the player of held object
+						#dop+=.1
+						
+						showConfidenceGui = true
+				else:
+					if(Input.GetKeyDown(KeyCode.Backspace)):
+						showConfidenceGui = false
+					else:
+						for i in range(0,7):#Bad way to do this, rewrite later.
+							if(Input.GetKeyDown("" + i)):
+								Placed[index] = true
+								p++
+								i = index
+								while(Placed[i]):
+									if(p >= total):
+										i = total+1
+										break
+									i++
+									if(i>=total):
+										i = 0
+								index = i
 							
 			else:
 				pass
@@ -143,4 +154,33 @@ class PlayerBehavior (MonoBehaviour):
 		#apply correction rotation
 		obj.transform.rotation.eulerAngles += p.rotation;*/
 		
-		
+	def OnConfidenceGUI ():
+		dialogWidth = 400;
+		dialogHeight = 200;
+
+		//TODO : make the dialog pretty!
+		GUI.backgroundColor = Color.green
+		GUILayout.BeginArea(Rect((Screen.width - dialogWidth) / 2, (Screen.height - dialogHeight) / 2, dialogWidth, dialogHeight))
+		GUILayout.BeginVertical("Box")
+		GUILayout.FlexibleSpace()
+
+		GUILayout.BeginHorizontal()
+		GUILayout.FlexibleSpace()
+		GUILayout.Label("press [1 - 7] to indicate how confident you are")
+		GUILayout.FlexibleSpace()
+		GUILayout.EndHorizontal()
+
+		GUILayout.BeginHorizontal()
+		GUILayout.FlexibleSpace()
+		GUILayout.Label("press [Backspace] to pick this item back up")
+		GUILayout.FlexibleSpace()
+		GUILayout.EndHorizontal()
+
+		GUILayout.FlexibleSpace()
+		GUILayout.EndVertical()
+		GUILayout.EndArea()
+	
+	def OnGUI():
+		//Debug.Log(showConfidenceGui)
+		if(showConfidenceGui):
+			OnConfidenceGUI()

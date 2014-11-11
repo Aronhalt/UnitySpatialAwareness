@@ -9,6 +9,15 @@ class Login (MonoBehaviour):
 	public playNormal as Texture2D
 	public playHover as Texture2D
 	
+	def Start():
+		w = .156*Screen.width
+		h = .137*Screen.height
+		x = (Screen.width-w)/2
+		y = (Screen.height/2)-(1.4*h)
+		guiTexture.pixelInset = Rect (x, y, w, h)
+		Debug.Log(guiTexture.pixelInset)
+		Debug.Log(Screen.width+":"+Screen.height)
+		
 	def OnGUI() as void:
 		
 		mystyle.fontSize = 20
