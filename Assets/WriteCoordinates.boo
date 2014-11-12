@@ -1,6 +1,6 @@
 ﻿import UnityEngine
 
-class WriteCoordinates (MonoBehaviour): 
+public class WriteCoordinates (MonoBehaviour): 
 
 	placed = 0 #Checks whether object has been placed
 	confidence = 0 #Confidence score on placement of object
@@ -17,16 +17,17 @@ class WriteCoordinates (MonoBehaviour):
 	def Update ():
 		pass
 			
-	def saveCSV ():
+	public def saveCSV (confidence):
 		self.endX = transform.position.x
 		self.endY = transform.position.y
+		self.confidence = confidence
+		name = self.gameObject.name
 		filepath = "Data/data.csv"
 		del = ","
-		
-		output = "$startX$del$startY$del$endX$del$endY$del$confidence"
+		output = "$name$del$startX$del$startY$del$endX$del$endY$del$confidence$del"
 		try:
 			using myfile = System.IO.StreamWriter(filepath, true):
-				myfile.WriteLine(output)
+				myfile.Write(output)
 		except e:
 			Debug.Log("There was an error in writing this object to data.scv")
 			

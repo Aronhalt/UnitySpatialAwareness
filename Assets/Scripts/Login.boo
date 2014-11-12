@@ -19,7 +19,6 @@ class Login (MonoBehaviour):
 		Debug.Log(Screen.width+":"+Screen.height)
 		
 	def OnGUI() as void:
-		
 		mystyle.fontSize = 20
 		xcenter = Screen.width/2
 		ycenter = Screen.height/2
@@ -38,7 +37,7 @@ class Login (MonoBehaviour):
 
 	def OnMouseDown() as void:
 		saveCSV()
-		PlayerPrefs.SetInt("state", 2)
+		PlayerPrefs.SetInt("state", 1)
 		Application.LoadLevel("SceneA")
 		
 	def saveCSV ():

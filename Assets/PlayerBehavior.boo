@@ -15,6 +15,7 @@ class PlayerBehavior (MonoBehaviour):
 	
 	Objects = []
 	Placed = []
+	numPlaced = 0#We should probably scrap my Placed idea above for something better.
 	z = float = 0.0;
 	p = 0
 	showConfidenceGui = false
@@ -28,7 +29,6 @@ class PlayerBehavior (MonoBehaviour):
 	
 	#Depth of placement, so you can fine tune right where objects drop.
 	dop = 0.5
-	
 
 	public currentState = state.Stage2
 
@@ -49,7 +49,7 @@ class PlayerBehavior (MonoBehaviour):
 		if currentState == state.Stage1:
 			pass
 		elif currentState == state.Stage2:
-			if (index < len(Objects)):
+			if (index < total):
 				#Check whether you should be placing objects or giving a confidence
 				if not showConfidenceGui:
 				    UpdateCurrentItemPosition()#Updates position of items on screen.
@@ -60,17 +60,20 @@ class PlayerBehavior (MonoBehaviour):
 					elif(Input.GetMouseButtonDown(0)):
 						#Increase the distance from the player of held object
 						#dop+=.1
-						
 						showConfidenceGui = true
 				else:
 					if(Input.GetKeyDown(KeyCode.Backspace)):
 						showConfidenceGui = false
 					else:
-						for i in range(0,7):#Bad way to do this, rewrite later.
+						for i in range(1,8):#Bad way to do this, rewrite later.
 							if(Input.GetKeyDown("" + i)):
+								obj = Objects[index] as GameObject
+								obj.GetComponent[of WriteCoordinates]().saveCSV(i)
+								showConfidenceGui = false
 								Placed[index] = true
 								p++
 								i = index
+								numPlaced += 1 #This should show us when we've 
 								while(Placed[i]):
 									if(p >= total):
 										i = total+1
@@ -79,9 +82,30 @@ class PlayerBehavior (MonoBehaviour):
 									if(i>=total):
 										i = 0
 								index = i
+								if(numPlaced >= total):
+									#Debug.Log("$total")
+									self.finishCSVsave()
+									self.reset()
+									
 							
 			else:
 				pass
+		
+	#Will just Exit the game for now, should be changed later.
+	#Maybe Reset to scene 1? Perhaps say YOU WIN(even if you don't)
+	public def reset():
+		Debug.Log("EXIT")
+		Application.Quit()
+			
+	#Last step before exiting (or restarting) the game, sets data.csv up for the next runthrough
+	public def finishCSVsave():
+		filepath = "Data/data.csv"
+		output = Time.time
+		try:
+			using myfile = System.IO.StreamWriter(filepath, true):
+				myfile.WriteLine(output)
+		except e:
+			Debug.Log("There was an error in finishing writing to data.scv\nYou should press return in the document to set the writer to a newline.")
 		
 	def incIndex():
 		obj = Objects[index] as GameObject
@@ -130,13 +154,12 @@ class PlayerBehavior (MonoBehaviour):
 		if (Input.GetAxis("Mouse ScrollWheel")):
 			temp = Input.GetAxis("Mouse ScrollWheel")
 			
-			if (temp < 0):
-				z -= .1
-			else:
-				z += .1	
-			z = Mathf.Clamp(z, 0.0f,  1.0f)
+			if (temp < 0 and dop > 0.5):
+				dop -= 0.1
+			elif (temp > 0 and dop < 1.0):
+				dop += 0.1	
 			
-		obj.transform.position = Camera.main.ScreenToWorldPoint(Vector3(Screen.width/2, Screen.height/2, (Camera.main.nearClipPlane+dop + z)))
+		obj.transform.position = Camera.main.ScreenToWorldPoint(Vector3(Screen.width/2, Screen.height/2, (Camera.main.nearClipPlane+dop)))
 		
 		#apply correction offset
 		/*obj.transform.position += p.offset.x * gameObject.transform.right.normalized;
