@@ -3,7 +3,7 @@
 class MasterScript (MonoBehaviour): 
 	Scene = ""
 	flag = 0
-	timer = 5.0
+	timer = 120.0
 
 	def Awake ():
 		Scene = Application.loadedLevelName
@@ -19,10 +19,11 @@ class MasterScript (MonoBehaviour):
 		
 		if (timer <= 0 and flag == 1):
 			Application.LoadLevel(Scene)
+			PlayerPrefs.SetInt("state", 2)
 			flag = 2
 		
 	def loadNewScene():
 		if (timer <= 0 and flag == 0):
 			Application.LoadLevel("blackScreen")
 			flag = 1
-			timer = 5.0
+			timer = 120.0
