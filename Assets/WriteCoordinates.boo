@@ -9,9 +9,9 @@ public class WriteCoordinates (MonoBehaviour):
 	endX = 0.0
 	endY = 0.0
 
-	def Start ():
+	def Awake ():
 		self.startX = transform.position.x
-		self.startY = transform.position.y
+		self.startY = transform.position.z
 		#Debug.Log("This is x = $startX and this is y = $startY")
 	
 	def Update ():
@@ -19,7 +19,7 @@ public class WriteCoordinates (MonoBehaviour):
 			
 	public def saveCSV (confidence):
 		self.endX = transform.position.x
-		self.endY = transform.position.y
+		self.endY = transform.position.z
 		self.confidence = confidence
 		name = self.gameObject.name
 		filepath = "Data/data.csv"

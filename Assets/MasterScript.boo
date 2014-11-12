@@ -3,7 +3,7 @@
 class MasterScript (MonoBehaviour): 
 	Scene = ""
 	flag = 0
-	timer = 120.0
+	public timer = 120.0
 
 	def Awake ():
 		Scene = Application.loadedLevelName
