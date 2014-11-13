@@ -1,9 +1,9 @@
 #pragma strict
 import System.Linq;
 
-var duration : float = 4.0;    //time spent at full opacity
-var fadeTime : float = 1.0;    //time spent fading
-var frameRate : float = 10.0;  //frames per second
+var duration : float = 8.0;    //time spent at full opacity
+var fadeTime : float = 4.0;    //time spent fading
+var frameRate : float = 5.0;  //frames per second
 var textures : Texture2D[];
 var next : GameObject;
 
