@@ -3,4 +3,4 @@ UnitySpatialAwareness
 
 Spatial Awareness group
 
-Hey so I noticed what was wrong. It was the Inventory file attached to the player, it's not working correctly right now and throws a bunch of errors. To fix it the file needs to be removed from the player and the script removed from the project before it'll work. I don't know if you can flag scripts to not be compiled or not.
+So I've started adding issues to the issues bar on the side. Right now with our first official alpha release there's not much to do, however as you do work here and there throw issues, enhancement ideas etc into the issues bar so that we can collaborate together on things that need to be done. This way it'll make our lives easier.
