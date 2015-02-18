@@ -4,7 +4,7 @@ class elevator (MonoBehaviour):
 	#elevatorManager as elevatorManager = GetComponent[of elevatorManager]()
 	public manager as GameObject
 	def Start ():
-		manager = GameObject.Find("elevatorManager") 
+		manager = GameObject.Find("GameMaster") 
 	 
 	def Update ():
 	#if player collides with elevator inside call eventHandler(enterElevator)
@@ -15,14 +15,14 @@ class elevator (MonoBehaviour):
 		if player != null and Vector3.Distance(player.transform.position, transform.localPosition) < 5 and Input.GetKeyDown('e'):         	
 	        	Debug.Log("e key was pressed")
 	        	Debug.Log(Vector3.Distance(player.transform.position, transform.localPosition))
-	        	Debug.Log(manager.GetComponent[of elevatorManager]().getFloor())
+	        	#Debug.Log(manager.GetComponent[of MasterScript]().getFloor())
 	        	goUp()
         	
 	#def Awake() as void:
 	#	DontDestroyOnLoad(transform.gameObject)
 	def goUp():
 		Debug.Log("go up")
-		manager.GetComponent[of elevatorManager]().getNextFloor()	
+		manager.GetComponent[of MasterScript]().getNextFloor()	
 	#delay = elevatorManager.getDelay
 	#wait delay*.5
 	#load scene elevatorManager.getNextFloor

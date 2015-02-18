@@ -11,3 +11,9 @@ EditorBuildSettings:
     path: Assets/SceneA.unity
   - enabled: 1
     path: Assets/blackScreen.unity
+  - enabled: 1
+    path: Assets/testEle1.unity
+  - enabled: 1
+    path: Assets/testEle2.unity
+  - enabled: 1
+    path: Assets/movementtestWIP.unity

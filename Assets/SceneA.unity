@@ -10775,7 +10775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526ff5d57a40cce43bf2f3c9a9b2fb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 1276954233}
 --- !u!23 &1126930116
 Renderer:
   m_ObjectHideFlags: 0
@@ -12305,6 +12305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 120
+  delayTime: 0
 --- !u!4 &1276954235
 Transform:
   m_ObjectHideFlags: 0
