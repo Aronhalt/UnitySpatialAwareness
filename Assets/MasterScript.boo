@@ -7,7 +7,8 @@ class MasterScript (MonoBehaviour):
 	public delayTime = 0.0 
 	tFloors = 4
 	currentFloor =0
-	floorsRemaining = 4
+	state = 1
+	floorsRemaining = 4	
 	nextScene = ["testEle3"]
 	floors = ['movementtestWIP',
 				'testEle1',
@@ -46,7 +47,12 @@ class MasterScript (MonoBehaviour):
 		floorsRemaining--
 		if floorsRemaining <= 0:
 			Debug.Log("going to next scene")
-			Application.LoadLevel(nextScene[0] as string)
+			if state == 1:
+				state = 2
+				floorsRemaining = len(floors)
+				Application.LoadLevel(floors[tFloors-floorsRemaining] as string)
+			else:
+				Application.LoadLevel(nextScene[0] as string)
 			#go to next scene
 			#temp = nextScene.first
 			#remove nextScene. first
@@ -54,6 +60,7 @@ class MasterScript (MonoBehaviour):
 			#return nextScene.first
 		else:
 			Debug.Log("going to next floor")
+			
 			Application.LoadLevel(floors[tFloors-floorsRemaining] as string)
 			#Application.LoadLevel(nextScene[])
 			#move up onefloor in current scene
